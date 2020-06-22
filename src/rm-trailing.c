@@ -53,10 +53,11 @@ void getline(char s[]) {
     }
     if (c == EOF) {
         exit(EXIT_SUCCESS);
-    }
-    if (c == '\n') {
+    } else if (c == '\n') {
         s[i] = c;
         ++i;
     }
     s[i] = '\0';
+
+    return;
 }
