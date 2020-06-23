@@ -11,53 +11,53 @@
 void getline(char s[]);
 
 int main(void) {
-    char line[MAX_LEN];
-    int i, c, last;
-    int j;
+	char line[MAX_LEN];
+	int i, c, last;
+	int j;
 
-    while (1) {
-        i = 0;
-        last = -1; /* start at -1 because we could have just a blank line */
+	while (1) {
+		i = 0;
+		last = -1; /* start at -1 because we could have just a blank line */
 
-        getline(line);
+		getline(line);
 
-        /* increment counter until we reach the end of the string, save position of last non-whitespace character */
-        while ((c = line[i]) != '\0') {
-            if (c != ' ' && c != '\t' && c != '\n') {
-                last = i;
-            }
-            ++i;
-        }
+		/* increment counter until we reach the end of the string, save position of last non-whitespace character */
+		while ((c = line[i]) != '\0') {
+			if (c != ' ' && c != '\t' && c != '\n') {
+				last = i;
+			}
+			++i;
+		}
 
-        /* strip trailing whitespace */
-        if (last > -1) {
-            j = 0;
-            while (j <= last) {
-                putchar(line[j]);
-                ++j;
-            }
-            putchar('\n');
-        } else { /* just recreate the blank line in this case */
-            putchar('\n');
-        }
-    }
+		/* strip trailing whitespace */
+		if (last > -1) {
+			j = 0;
+			while (j <= last) {
+				putchar(line[j]);
+				++j;
+			}
+			putchar('\n');
+		} else { /* just recreate the blank line in this case */
+			putchar('\n');
+		}
+	}
 
-    return 0;
+	return 0;
 }
 
 /* getline: loads a line no longer than MAX_LEN into s[]. Exit on EOF. */
 void getline(char s[]) {
-    int c, i;
-    for (i = 0; i < MAX_LEN - 1 && (c = getchar()) != EOF && c != '\n'; ++i) {
-        s[i] = c;
-    }
-    if (c == EOF) {
-        exit(EXIT_SUCCESS);
-    } else if (c == '\n') {
-        s[i] = c;
-        ++i;
-    }
-    s[i] = '\0';
+	int c, i;
+	for (i = 0; i < MAX_LEN - 1 && (c = getchar()) != EOF && c != '\n'; ++i) {
+		s[i] = c;
+	}
+	if (c == EOF) {
+		exit(EXIT_SUCCESS);
+	} else if (c == '\n') {
+		s[i] = c;
+		++i;
+	}
+	s[i] = '\0';
 
-    return;
+	return;
 }
