@@ -5,31 +5,25 @@
 
 #define MAX_LEN 120
 
-#include <stdlib.h>
 #include <stdio.h>
 
-void getline(char s[]);
+int getline(char s[]);
 
 int main(void) {
 	char line[MAX_LEN];
-	int i, c, last;
-	int j;
+	int i, j, c, last, length;
 
-	while (1) {
+	while ((length = getline(line)) > 0) {
 		i = 0;
-		last = -1; /* start at -1 because we could have just a blank line */
+		last = -1;
 
-		getline(line);
-
-		/* increment counter until we reach the end of the string, save position of last non-whitespace character */
-		while ((c = line[i]) != '\0') {
+		for (i = 0; i < length; ++i) {
+			c = line[i];
 			if (c != ' ' && c != '\t' && c != '\n') {
 				last = i;
 			}
-			++i;
 		}
 
-		/* strip trailing whitespace */
 		if (last > -1) {
 			j = 0;
 			while (j <= last) {
@@ -37,7 +31,7 @@ int main(void) {
 				++j;
 			}
 			putchar('\n');
-		} else { /* just recreate the blank line in this case */
+		} else {
 			putchar('\n');
 		}
 	}
@@ -45,19 +39,17 @@ int main(void) {
 	return 0;
 }
 
-/* getline: loads a line no longer than MAX_LEN into s[]. Exit on EOF. */
-void getline(char s[]) {
+/* getline: loads a line no longer than MAX_LEN into s[]. Returns the length of the line. */
+int getline(char s[]) {
 	int c, i;
 	for (i = 0; i < MAX_LEN - 1 && (c = getchar()) != EOF && c != '\n'; ++i) {
 		s[i] = c;
 	}
-	if (c == EOF) {
-		exit(EXIT_SUCCESS);
-	} else if (c == '\n') {
+	if (c == '\n') {
 		s[i] = c;
 		++i;
 	}
 	s[i] = '\0';
 
-	return;
+	return i;
 }
