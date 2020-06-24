@@ -12,21 +12,21 @@ int getline(char s[]);
 int main(void)
 {
 	char line[MAX_LEN];
-	int i, j, c, last, length;
+	int length;
 
 	while ((length = getline(line)) > 0) {
-		i = 0;
-		last = -1;
+		int i = 0;
+		int last = -1;
 
 		for (i = 0; i < length; ++i) {
-			c = line[i];
+			int c = line[i];
 			if (c != ' ' && c != '\t' && c != '\n') {
 				last = i;
 			}
 		}
 
 		if (last > -1) {
-			j = 0;
+			int j = 0;
 			while (j <= last) {
 				putchar(line[j]);
 				++j;

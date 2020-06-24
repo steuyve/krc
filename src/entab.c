@@ -8,7 +8,7 @@
 
 int main(int argc, char *argv[])
 {
-	int n, c, count, j;
+	int n, c, count;
 
 	if (argc != 2) {
 		fprintf(stderr, "usage: entab n - where n is the number of spaces to replace by a tab character.\n");
@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
 			}
 		} else {
 			/* on other characters, put count number of spaces */
+			int j;
 			for (j = 0; j < count; ++j) {
 				putchar(' ');
 			}
