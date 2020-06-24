@@ -5,7 +5,8 @@
 
 #include <stdio.h>
 
-int main(void) {
+int main(void)
+{
 	int c;
 	int blanks = 0;
 	int tabs = 0;

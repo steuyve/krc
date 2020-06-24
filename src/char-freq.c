@@ -8,7 +8,8 @@
 
 #include <stdio.h>
 
-int main(void) {
+int main(void)
+{
 	int range = LAST - START;
 	int characters[LAST - START];
 	int c, i, j;
