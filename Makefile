@@ -9,6 +9,7 @@ all:
 	make rm-trailing
 	make entab
 	make bits
+	make escape
 
 eof: src/eof.c
 	$(CC) -o bin/$@ $< $(CFLAGS)
@@ -28,5 +29,8 @@ entab: src/entab.c
 bits: src/bits.c
 	$(CC) -o bin/$@ $< $(CFLAGS)
 
+escape: src/escape.c
+	$(CC) -o bin/$@ $< $(CFLAGS)
+
 clean:
-	rm -rf bin/
+	rm -rfI bin/
