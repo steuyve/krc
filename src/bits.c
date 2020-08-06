@@ -20,7 +20,7 @@ int main(void)
 	return 0;
 }
 
-/* showbits - display the corresponding bit field represented by an unsigned int. */
+/* showbits: display the corresponding bit field represented by an unsigned int. */
 void showbits(unsigned int x)
 {
 	int i;
@@ -32,7 +32,7 @@ void showbits(unsigned int x)
 	printf("\n");
 }
 
-/* getbits - returns the n bits of x starting at position p (from right to left starting at 0). */
+/* getbits: returns the n bits of x starting at position p (from right to left starting at 0). */
 unsigned int getbits(unsigned int x, int p, int n)
 {
 	/*
@@ -46,7 +46,7 @@ unsigned int getbits(unsigned int x, int p, int n)
 	return (x >> (p+1-n)) & ~(~0 << n);
 }
 
-/* setbits - sets the n bits of x at position p to be the rightmost n bits of y. */
+/* setbits: sets the n bits of x at position p to be the rightmost n bits of y. */
 unsigned int setbits(unsigned int x, int p, int n, unsigned int y)
 {
 	unsigned int mask = ~(~0 << n);
@@ -60,7 +60,7 @@ unsigned int setbits(unsigned int x, int p, int n, unsigned int y)
 	return (x & ~(mask << (p+1-n))) | ((y & mask) << (p+1-n));
 }
 
-/* invert - inverts the n bits of x starting at position p. */
+/* invert: inverts the n bits of x starting at position p. */
 unsigned int invert(unsigned int x, int p, int n)
 {
 	unsigned int mask = ~(~0 << n);

@@ -23,7 +23,7 @@ int main(void)
 	return 0;
 }
 
-/* escape - converts newlines and tabs to \n and \t while copying string t to s. */
+/* escape: converts newlines and tabs to \n and \t while copying string t to s. */
 void escape(char s[], char t[])
 {
 	int i;
@@ -49,7 +49,7 @@ void escape(char s[], char t[])
 	s[j] = '\0';
 }
 
-/* converts literal '\t' and '\n' into tabs and newlines while copying string to s. */
+/* descape: converts literal '\t' and '\n' into tabs and newlines while copying string to s. */
 void descape(char s[], char t[])
 {
 	int i;
