@@ -7,14 +7,14 @@
 
 #include <stdio.h>
 
-int getline(char s[]);
+int my_getline(char s[]);
 
 int main(void)
 {
 	char line[MAX_LEN];
 	int length;
 
-	while ((length = getline(line)) > 0) {
+	while ((length = my_getline(line)) > 0) {
 		int i = 0;
 		int last = -1;
 
@@ -40,8 +40,8 @@ int main(void)
 	return 0;
 }
 
-/* getline: loads a line no longer than MAX_LEN into s[]. Returns the length of the line. */
-int getline(char s[])
+/* my_getline: loads a line no longer than MAX_LEN into s[]. Returns the length of the line. */
+int my_getline(char s[])
 {
 	int c, i;
 	for (i = 0; i < MAX_LEN - 1 && (c = getchar()) != EOF && c != '\n'; ++i) {
